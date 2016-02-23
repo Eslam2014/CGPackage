@@ -1,0 +1,44 @@
+/* Application wide styles */
+
+.drawLine {
+    -fx-stroke: #FF001E5F ;
+    -fx-stroke-width:5;
+    -fx-stroke-line-cap:round;
+    -fx-stroke-dash-array:20;
+    
+}
+.finshLine{
+	-fx-stroke: black ;
+    -fx-stroke-width:3;
+    -fx-stroke-line-cap:round;
+    -fx-stroke-dash-array:20;
+}
+.resultLine{
+	-fx-stroke: #66888888 ;
+    -fx-stroke-width:4;
+    -fx-stroke-line-cap:round;
+    -fx-stroke-dash-array:null;
+}
+
+.drawEllipse{
+	-fx-fill:#FF8CC0FF;
+	-fx-stroke: #FF001E5F ;
+    -fx-stroke-width:3;
+    -fx-stroke-dash-array:null;
+	
+}
+
+.resultEllipse{
+   -fx-fill:#88FFC08C;
+	-fx-stroke: black ;
+    -fx-stroke-width:3;
+    -fx-stroke-dash-array:7;	
+    
+}
+
+.resultEllipse:hover{
+  -fx-fill:#FF4F82BF;
+    
+}
+
+

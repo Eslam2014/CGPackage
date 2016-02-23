@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.FXCollections ?>
+
+<GridPane maxHeight="1000.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" styleClass="/styles/styless.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cgui.MainWindowController">
+	<columnConstraints>
+		<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+	</rowConstraints>
+	<children>
+		<Pane fx:id="drawingCanvas" maxHeight="1000.0" maxWidth="2000.0" minHeight="1000.0" minWidth="2000.0" onMouseDragged="#mouseDragged" onMouseMoved="#mouseMoved" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: white;" styleClass="/styles/DrawingStyle.css" />
+      <Pane fx:id="resultCanvas" maxHeight="1000.0" maxWidth="2000.0" minHeight="1000.0" minWidth="2000.0" prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: transparent;" visible="false" />
+		<GridPane maxHeight="95.0" maxWidth="190.0" minHeight="95.0" minWidth="190.0" prefWidth="190.0" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<GridPane.margin>
+				<Insets bottom="10.0" right="10.0" />
+			</GridPane.margin>
+			<children>
+				<Pane style="-fx-background-color: #8AAA; -fx-border-color: Gray; -fx-border-radius: 5 5; -fx-background-radius: 5 5;">
+					<children>
+						<StackPane alignment="TOP_LEFT" maxHeight="95.0" maxWidth="190.0" minHeight="95.0" minWidth="190.0" prefHeight="95.0" prefWidth="190.0" style="-fx-background-color: Transparent;">
+							<children>
+								<Label text="View:" />
+								<ComboBox fx:id="algorithmList" onAction="#algorithmList_SelectionChanged" prefWidth="150.0">
+									<StackPane.margin>
+										<Insets top="20.0" />
+									</StackPane.margin>
+								</ComboBox>
+								<Label text=" Crush those points and segments real good." wrapText="true">
+									<StackPane.margin>
+										<Insets top="50.0" />
+									</StackPane.margin>
+								</Label>
+							</children>
+							<padding>
+								<Insets left="10.0" right="10.0" top="10.0" />
+							</padding>
+						</StackPane>
+					</children>
+				</Pane>
+			</children>
+		</GridPane>
+		<Button fx:id="clearButton" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#clearButton_Click" style="-fx-background-color: #8AAA; -fx-background-radius: 10 10; -fx-border-color: Gray; -fx-border-radius: 10 10;" text="Clear" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+			<GridPane.margin>
+				<Insets bottom="110.0" right="10.0" />
+			</GridPane.margin>
+			<padding>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</Button>
+	</children>
+</GridPane>
