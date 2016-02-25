@@ -5,14 +5,12 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-
 import cg.algorithms.Algorithm;
 import cg.utilities.Line;
 import cg.utilities.Point;
 import cg.utilities.Polygon;
 
-public class ConvexHullTest {
+public abstract class ConvexHullTest {
 
 	protected Algorithm convexHullTester;
 	protected List<Point> inputPoints;
@@ -23,7 +21,7 @@ public class ConvexHullTest {
 	protected List<Polygon> inputPolygons;
 	protected List<Polygon> outputPolygons;
 
-	@Before
+	
 	public void InitializeData() {
 
 		inputPoints = new ArrayList<>();
@@ -37,7 +35,7 @@ public class ConvexHullTest {
 
 	// #region Cases
 	public void Case1() {
-
+     InitializeData();
 		// #region Case 1 (Signle Point):
 		inputPoints.add(new Point(0, 0));
 		desiredPoints.add(new Point(0, 0));
@@ -50,7 +48,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case2() {
-
+		InitializeData();
 		// #region Case 2 (2 points Line):
 		inputPoints.add(new Point(0, 5));
 		inputPoints.add(new Point(7, 10));
@@ -66,7 +64,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case3() {
-
+		InitializeData();
 		// #region Case 3 (triangle):
 		inputPoints.add(new Point(1, 4));
 		inputPoints.add(new Point(2, 0));
@@ -84,7 +82,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case4() {
-
+		InitializeData();
 		// #region Case 4 (triangle with 2 points with the same y-coordinate):
 
 		inputPoints.add(new Point(1, 1));
@@ -103,7 +101,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case5() {
-
+		InitializeData();
 		// #region Case 5 (7 points on the same line):
 
 		inputPoints.add(new Point(0, 0));
@@ -126,7 +124,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case6() {
-
+		InitializeData();
 		// #region Case 6 (line with an exception)
 
 		inputPoints.add(new Point(0, 0));
@@ -151,7 +149,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case7() {
-
+		InitializeData();
 		// #region Case 7 (line with two points on opposite sides)
 
 		inputPoints.add(new Point(0, 1));
@@ -178,7 +176,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case8() {
-
+		InitializeData();
 		// #region Case 8 (convex hull with one interior point)
 
 		inputPoints.add(new Point(1, 3));
@@ -205,7 +203,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case9() {
-
+		InitializeData();
 		// #region Case 9 (random convex hull, Source:
 		// http://stackoverflow.com/questions/482278/test-case-data-for-convex-hull)
 
@@ -238,7 +236,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case10() {
-
+		InitializeData();
 		// #region Case 10 (random points, Source:
 		// http://stackoverflow.com/questions/482278/test-case-data-for-convex-hull)
 
@@ -279,7 +277,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case11() {
-
+		InitializeData();
 		// #region Case 11 (convex hull with alot of interior points, Source:
 		// http://stackoverflow.com/questions/482278/test-case-data-for-convex-hull):
 
@@ -376,7 +374,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case12() {
-
+		InitializeData();
 		// #region Case 12 (random large set of points in small range ({0, 40},
 		// {0, 40}) ):
 
@@ -1398,7 +1396,7 @@ public class ConvexHullTest {
 	}
 
 	public void Case13() {
-
+		InitializeData();
 		// #region Case 13 (random large set of points in large range ({0, 500},
 		// {0, 500})):
 
@@ -3430,20 +3428,20 @@ public class ConvexHullTest {
 	}
 	
 	// #endregion
-	private boolean CompareDesiredWithActual(List<Point> _desiredPoints, List<Point> _outputPoints) {
-		if (_outputPoints == null && _desiredPoints != null)
+	private boolean CompareDesiredWithActual(List<Point> desiredPoints, List<Point> outputPoints) {
+		if (outputPoints == null && desiredPoints != null)
 			return false;
 
-		if (_desiredPoints.size() != _outputPoints.size())
+		if (desiredPoints.size() != outputPoints.size())
 			return false;
 
-		for (int i = 0; i < _desiredPoints.size(); i++) {
+		for (int i = 0; i < desiredPoints.size(); i++) {
 			boolean isFound = false;
 
-			for (int j = 0; j < _outputPoints.size(); j++)
+			for (int j = 0; j < outputPoints.size(); j++)
 
 			{
-				if (_desiredPoints.get(i).equals(_outputPoints.get(j))) {
+				if (desiredPoints.get(i).equals(outputPoints.get(j))) {
 					isFound = true;
 					break;
 				}
