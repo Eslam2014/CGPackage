@@ -33,7 +33,7 @@ public class Point  {
 	public boolean equals(Object obj) {
 		if (obj instanceof Point) {
 			Point p = (Point) obj;
-			return Math.abs(this.x - p.x) < Constants.Epsilon && Math.abs(this.x - p.x) < Constants.Epsilon;
+			return Math.abs(this.x - p.x) < Constants.Epsilon && Math.abs(this.y - p.y) < Constants.Epsilon;
 		}
 		return false;
 	}
