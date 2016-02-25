@@ -5,17 +5,17 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import cg.utilities.*;
+
 import org.junit.Test;
 
 public class PointUtilTest {
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void CheckCrossProduct() {
 		Point a = new Point(3, 5);
 		Point b = new Point(4, 12);
-
-		assertEquals(16, HelperMethods.CrossProduct(a, b));
+		assertEquals(HelperMethods.CrossProduct(a, b), 16, 0);
+		
 	}
 
 	// region In Triangle Tests
@@ -27,7 +27,7 @@ public class PointUtilTest {
 
 		Point p = new Point(3, 3);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Inside);
+		assertEquals(Enums.PointInPolygon.Inside, res);
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class PointUtilTest {
 
 		Point p = new Point(3, 3);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Inside);
+		assertEquals(Enums.PointInPolygon.Inside, res);
 	}
 
 	@Test
@@ -49,7 +49,7 @@ public class PointUtilTest {
 
 		Point p = new Point(3, 6);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals( Enums.PointInPolygon.OnEdge,res);
+		assertEquals(Enums.PointInPolygon.OnEdge, res);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class PointUtilTest {
 
 		Point p = new Point(3, 4);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.OnEdge);
+		assertEquals(Enums.PointInPolygon.OnEdge, res);
 	}
 
 	@Test
@@ -71,7 +71,7 @@ public class PointUtilTest {
 
 		Point p = new Point(1, 1);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Outside);
+		assertEquals(Enums.PointInPolygon.Outside, res);
 	}
 
 	@Test
@@ -82,7 +82,7 @@ public class PointUtilTest {
 
 		Point p = new Point(2, 2);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.OnEdge);
+		assertEquals(Enums.PointInPolygon.OnEdge, res);
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class PointUtilTest {
 
 		Point p = new Point(4, 4);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Outside);
+		assertEquals(Enums.PointInPolygon.Outside, res);
 	}
 
 	@Test
@@ -104,7 +104,7 @@ public class PointUtilTest {
 
 		Point p = new Point(0, 0);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Outside);
+		assertEquals(Enums.PointInPolygon.Outside, res);
 	}
 
 	@Test
@@ -115,7 +115,7 @@ public class PointUtilTest {
 
 		Point p = new Point(3, 3);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.OnEdge);
+		assertEquals(Enums.PointInPolygon.OnEdge, res);
 	}
 
 	@Test
@@ -126,7 +126,7 @@ public class PointUtilTest {
 
 		Point p = new Point(2, 1);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Outside);
+		assertEquals(Enums.PointInPolygon.Outside, res);
 	}
 
 	@Test
@@ -137,8 +137,9 @@ public class PointUtilTest {
 
 		Point p = new Point(0, 0);
 		Enums.PointInPolygon res = HelperMethods.PointInTriangle(p, a, b, c);
-		assertEquals(res, Enums.PointInPolygon.Outside);
+		assertEquals(Enums.PointInPolygon.Outside, res);
 	}
+
 	// #endregion
 
 	// #region Point On Ray
@@ -147,28 +148,28 @@ public class PointUtilTest {
 	public void PointOnRayReturnsTrueIfExistsOnSegment() {
 		Point p = new Point(2, 2);
 		boolean onRay = HelperMethods.PointOnRay(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onRay, true);
+		assertEquals(true, onRay);
 	}
 
 	@Test
 	public void PointOnRayReturnsTrueIfAfterEnd() {
 		Point p = new Point(4, 4);
 		boolean onRay = HelperMethods.PointOnRay(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onRay, true);
+		assertEquals(true, onRay);
 	}
 
 	@Test
 	public void PointOnRayReturnsTrueIfExistsOnStart() {
 		Point p = new Point(1, 1);
 		boolean onRay = HelperMethods.PointOnRay(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onRay, true);
+		assertEquals(true, onRay);
 	}
 
 	@Test
 	public void PointOnRayReturnsTrueIfExistsOnEnd() {
 		Point p = new Point(3, 3);
 		boolean onRay = HelperMethods.PointOnRay(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onRay, true);
+		assertEquals(true, onRay);
 	}
 
 	@Test
@@ -177,7 +178,7 @@ public class PointUtilTest {
 		for (int i = 0; i < 100; i++) {
 			Point p = new Point(random.nextDouble(), random.nextDouble());
 			boolean onRay = HelperMethods.PointOnRay(p, new Point(1, 1), new Point(1, 1));
-			assertEquals(onRay, true);
+			assertEquals(true, onRay);
 		}
 	}
 
@@ -185,15 +186,16 @@ public class PointUtilTest {
 	public void PointOnRayReturnsFalseIfPointBeforeStart() {
 		Point p = new Point(1, 1);
 		boolean onRay = HelperMethods.PointOnRay(p, new Point(2, 2), new Point(3, 3));
-		assertEquals(onRay, false);
+		assertEquals(false, onRay);
 	}
 
 	@Test
 	public void PointOnRayReturnsFalseIfPointNotColinear() {
 		Point p = new Point(2, 3);
 		boolean onRay = HelperMethods.PointOnRay(p, new Point(2, 2), new Point(3, 3));
-		assertEquals(onRay, false);
+		assertEquals(false, onRay);
 	}
+
 	// #endregion
 
 	// #region Point On Segment
@@ -202,98 +204,98 @@ public class PointUtilTest {
 	public void PointOnSegmentReturnsTrueIfExistsOnSegment() {
 		Point p = new Point(2, 2);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsTrueIfExistsOnSegmentStart() {
 		Point p = new Point(1, 1);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsTrueIfExistsOnSegmentEnd() {
 		Point p = new Point(3, 3);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsFalseIfExistsBeforeSegmentStart() {
 		Point p = new Point(0, 0);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsFalseIfExistsAfterSegmentEnd() {
 		Point p = new Point(4, 4);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsFalseIfDoesnotExistsOnSegment() {
 		Point p = new Point(3, 4);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(3, 3));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsTrueIfStartEqualsEndEqualsPoint() {
 		Point p = new Point(1, 1);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(1, 1));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentReturnsFalseIfStartEqualsEndDoesnotEqualPoint() {
 		Point p = new Point(1, 1);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 1), new Point(1, 1));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentHorizontalNotOnSegmentColinear() {
 		Point p = new Point(0, 2);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 2), new Point(3, 2));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentHorizontalNotOnSegmentNotColinear() {
 		Point p = new Point(-1, 9);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 2), new Point(3, 2));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentHorizontalOnSegment() {
 		Point p = new Point(2, 2);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(1, 2), new Point(3, 2));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentVerticalNotOnSegmentColinear() {
 		Point p = new Point(0, 1);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(0, 2), new Point(0, 4));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentVerticalNotOnSegmentNotColinear() {
 		Point p = new Point(3, 1);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(0, 2), new Point(0, 4));
-		assertEquals(onSegment, false);
+		assertEquals(false, onSegment);
 	}
 
 	@Test
 	public void PointOnSegmentVerticalOnSegment() {
 		Point p = new Point(0, 3);
 		boolean onSegment = HelperMethods.PointOnSegment(p, new Point(0, 2), new Point(0, 4));
-		assertEquals(onSegment, true);
+		assertEquals(true, onSegment);
 	}
 
 	// #endregion
